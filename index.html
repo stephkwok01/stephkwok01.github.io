@@ -1,15 +1,33 @@
 <!DOCTYPE HTML>
 <html>
-	<head> <title> Hello world page </title> </head>
+	<head> 
+		<title> Hello world page </title> 
 
-	<body> 
+		<script language = "javascript">
+			function message(){
+				alert("Do you really want to enter?")
+			}
+
+			function buttonfunction() {
+				alert("You clicked the button!")
+			}
+		</script>
+	</head>
+
+	<body onload= "message()"> 
 	<h1 style="text-align: center"> HELLO WORLD! </h1>
 	<h1 style= "color:red"> Welcome to this <strong>sickass</strong> page </h3>
+
+
 	<image src="http://67.media.tumblr.com/35744298fd2fd9ee3671a4173600856a/tumblr_n6r6nyBuEA1tc31mqo1_1280.jpg"/>
 
 	<div style="width: 645px; height:50px; background-color: purple"> </div>
 
-	<p style="color: black; font-size: 16; font-family: Arial"> this is a paragraph about <em> random stuff </em> </p>
+	<button type="button" onclick="buttonfunction()">
+
+	<p style="color: red; font-size: 16; font-family: Arial"> <em> DO NOT </em> click </p>
+
+
 
 	</body>
 </html>
