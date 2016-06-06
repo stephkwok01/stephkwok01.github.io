@@ -1,0 +1,285 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.container-nav{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*HOME PAGE*/
+.home-body{
+	background: url(home-image.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.home-name{
+	font-size: 95px;
+	color: white;
+	font-family: cursive;
+	padding-top: 200px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.home-links{
+	color: white;
+	font-family: Lucida Console;
+	font-size: 22px;
+}
+
+.home-home{
+	margin-left: 250px;
+}
+
+a{
+	color: white;
+}
+
+a:hover{
+	color: grey;
+	text-decoration: none;
+}
+
+/* PROFILE PAGE */
+.profile_intro{
+	font-size: 70px;
+	padding-left: 90px;
+	padding-top: 80px;
+	font-family: Lucida Console;
+	font-weight: bold;
+}
+
+.line1{
+	height: 20px;
+	width: 400px;
+	margin-top: 30px;
+	float: right;
+	border: 2px solid #515767;
+	background-color: #515767;
+	border-radius: 2px;
+}
+
+.line2{
+	height: 8px;
+	width: 550px;
+	margin-top: 10px;
+	float: right; 
+	border: 2px solid #323439;
+	background-color: #323439;
+	border-radius: 2px;
+}
+
+.aboutMe{
+	padding-top: 80px;
+	padding-left: 120px;
+	font-size: 17px;
+}
+
+.profile_image {
+	height: 420px;
+	padding-top: 40px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+
+/* TRAVEL PAGE */
+/*.costa-image{
+	position: relative;
+}*/
+
+.costa-rica{
+	height: 320px;
+	padding-top: 30px;
+}
+
+.hover-costa{
+	height: 270px;
+	width: 800px;
+	background-color: white;
+	position: absolute;
+	left: 20px;
+	top: 40px;
+	text-align: center;
+	padding-top: 25%;
+	font-size: 20px;
+	opacity: 0;
+	font-family: cursive;
+	transition: all 0.2s;
+}
+
+.hover-costa:hover{
+	opacity: 0.6;
+}
+
+.sa{
+	height: 400px;
+	padding-top: 10px;
+	display: inline-block;
+}
+
+.hover-osaka{
+	position: absolute;
+	height: 373px;
+	width: 295px;
+	background-color: white;
+	left: 33px;
+	top: 18px;
+	text-align: center;
+	padding-top: 46%;
+	font-size: 20px;
+	opacity: 0;
+	display: inline-block;
+	font-family: cursive;
+	transition: all 0.2s;
+}
+
+.hover-osaka:hover{
+	opacity: 0.6;
+}
+.hover-cape{
+	position: absolute;
+	height: 370px;
+	width: 465px;
+	background-color: white;
+	left: 25px;
+	top: 20px;
+	text-align: center;
+	padding-top: 30%;
+	font-size: 20px;
+	opacity: 0;
+	display: inline-block;
+	font-family: cursive;
+	transition: all 0.2s;
+}
+
+.hover-cape:hover{
+	opacity: 0.6;
+}
+
+
+.japan{
+	height: 400px;
+	left: 20px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.hover-osaka{
+	position: absolute;
+	height: 373px;
+	width: 295px;
+	background-color: white;
+	left: 33px;
+	top: 18px;
+	text-align: center;
+	padding-top: 46%;
+	font-size: 20px;
+	opacity: 0;
+	display: inline-block;
+	font-family: cursive;
+	transition: all 0.2s;
+}
+
+.hover-osaka:hover{
+	opacity: 0.6;
+}
+
+
+.peru{
+	width: 600px;
+	padding-top: 10px;
+	margin-bottom: 30px;
+}
+
+.hover-huaraz{
+	position: absolute;
+	height: 381px;
+	width: 581px;
+	background-color: white;
+	left: 25px;
+	top: 18px;
+	text-align: center;
+	padding-top: 33%;
+	font-size: 20px;
+	opacity: 0;
+	display: inline-block;
+	font-family: cursive;
+	transition: all 0.2s;
+}
+
+.hover-huaraz:hover{
+	opacity: 0.6;
+}
+
+.travel{
+	font-family: Lucida Console;
+	font-size: 70px;
+	padding-top: 100px;
+	font-weight: bold;
+	padding-left: 70px;
+}
+
+.experience{
+	font-size: 30px;
+	font-family: Lucida Console;
+	padding-top: 20px;
+	padding-left: 40px;
+}
+
+.oneasia{
+	font-size: 15px;
+	padding-top: 17px;
+	padding-left: 80px;
+}
+
+.oneasia-image{
+	padding-left: 20px;
+	width: 180px;
+}
+
+
+.newtech-image{
+	padding-left: 20px;
+	padding-top: 50px;
+} 
+
+.projects{
+	font-size: 30px;
+	font-family: Lucida Console;
+	padding-top: 30px;
+	padding-left: 40px;
+}
+
+.research-title{
+	font-size: 18px;
+	padding-left: 50px;
+	padding-top: 15px;
+}
+
+.research-body{
+	padding-left: 50px;
+	padding-top: 10px;
+}
+
+@media(min-width:768px) {
+	.container-nav{
+		margin-left: 170px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
