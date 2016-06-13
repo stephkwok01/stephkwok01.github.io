@@ -20,18 +20,39 @@ $(document).ready(function() {
       alert("there has been an error...")
     }
   })
+
+  // These code snippets use an open-source library. http://unirest.io/nodejs
+  $.ajax({
+    method: "GET",
+    url:"https://twinword-sentiment-analysis.p.mashape.com/analyze/?text=great+value+in+its+price+range!",
+    headers:{"X-Mashape-Key": "PbStp7XTqcmshozwb4sA09AZRaTEp1qKVYHjsnE0LcKWj66qWd",
+    "Accept": "application/json",
+    },
+    success: function (result) {
+     console.log();
+  }});
+
+// These code snippets use an open-source library. http://unirest.io/nodejs
+// unirest.get("https://twinword-sentiment-analysis.p.mashape.com/analyze/")
+// .header("X-Mashape-Key", "uf5wb9T3RJmsh6twwF3teVmAvcc7p1hJ8EfjsnM7gtYOvKzTKw")
+// .header("Accept", "application/json")
+// .end(function (result) {
+//   console.log(result.status, result.headers, result.body);
+// });
 });
+
+
 
 function handleResponse(response) {
   console.log(response);
   // add stuff here!
+  $("#list").html("");
   for (var i=0; i < response.data.length; i++)
   {
     var image_link = response.data[i].images.standard_resolution.url;
     // var img = $("<img />").attr('src', image_link)
-    var img = $("<img src='" + image_link + "' />");
+    var img = $("<div>"+"<img src='" + image_link + "' />" + response.data[i].caption.text +"</div>").addClass("photos"+i);
     $("#list").append(img);
-    $("#list").append(response.data[i].caption.text); 
   }
   ego(response);
   popularity(response);
@@ -76,32 +97,18 @@ function averageWords(response){
 
 function time(response){
   var weekDays = [0, 0, 0, 0, 0, 0, 0]
+  var weekNames = ["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
   for (var i = 0; i < response.data.length; i++) {
   var date = new Date(parseInt(response.data[i].created_time) * 1000);
   var dayOfTheWeek = date.getDay();
   weekDays[dayOfTheWeek]++; 
   }
   var largest = Math.max.apply(Math, weekDays);
-  if (largest === 0){
-    $(".active").append("Sunday")
-  }
-  else if (largest === 1){
-    $(".active").append("Monday")
-  }
-  else if (largest === 2){
-    $(".active").append("Tuesday")
-  }
-  else if (largest === 3){
-    $(".active").append("Wednesday")
-  }
-  else if (largest === 4){
-    $(".active").append("Thursday")
-  }
-  else if (largest === 5){
-    $(".active").append("Friday")
-  }
-  else if (largest === 6){
-    $(".active").append("Saturday")
+  var largestNum;
+  for (var i = 0; i < 7 ; i++){
+    if(weekDays[i] === largest) {
+      $(".active").append(weekNames[i])
+    }
   }
 }
 
