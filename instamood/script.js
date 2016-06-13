@@ -1,7 +1,5 @@
 var API_DOMAIN = "https://api.instagram.com/v1";
 var RECENT_MEDIA_PATH = "/users/self/media/recent";
-// what do you think a variable in all caps means?
-
 
 $(document).ready(function() {
   var token = window.location.hash;
@@ -20,40 +18,39 @@ $(document).ready(function() {
       alert("there has been an error...")
     }
   })
+});
 
-  // These code snippets use an open-source library. http://unirest.io/nodejs
+var SentimentCounter=0;
+var positive=0;
+function getSentiment(text){   
   $.ajax({
     method: "GET",
-    url:"https://twinword-sentiment-analysis.p.mashape.com/analyze/?text=great+value+in+its+price+range!",
+    url:"https://twinword-sentiment-analysis.p.mashape.com/analyze/",
     headers:{"X-Mashape-Key": "PbStp7XTqcmshozwb4sA09AZRaTEp1qKVYHjsnE0LcKWj66qWd",
     "Accept": "application/json",
     },
-    success: function (result) {
-     console.log();
-  }});
+    data: "text=" + text,
+    // $.each(data, function(i,text:response.data[i].caption.text));
+    success: analyzeSentiment,
+  });
+}
 
-// These code snippets use an open-source library. http://unirest.io/nodejs
-// unirest.get("https://twinword-sentiment-analysis.p.mashape.com/analyze/")
-// .header("X-Mashape-Key", "uf5wb9T3RJmsh6twwF3teVmAvcc7p1hJ8EfjsnM7gtYOvKzTKw")
-// .header("Accept", "application/json")
-// .end(function (result) {
-//   console.log(result.status, result.headers, result.body);
-// });
-});
-
-
+function analyzeSentiment(result) {
+  positive=positive+result.score;
+  $(".photos"+SentimentCounter).append("<div></div>"+ "positivity: " + result.score);
+  $(".photos"+SentimentCounter).append("<div></div>"+ "type: " + result.type);
+  SentimentCounter++;
+  $(".sentiment").text(positive);
+}
 
 function handleResponse(response) {
-  console.log(response);
-  // add stuff here!
-  $("#list").html("");
-  for (var i=0; i < response.data.length; i++)
-  {
+  for (var i=0; i < response.data.length; i++) {
     var image_link = response.data[i].images.standard_resolution.url;
-    // var img = $("<img />").attr('src', image_link)
     var img = $("<div>"+"<img src='" + image_link + "' />" + response.data[i].caption.text +"</div>").addClass("photos"+i);
     $("#list").append(img);
+    getSentiment(response.data[i].caption.text);
   }
+
   ego(response);
   popularity(response);
   averageWords(response);
@@ -120,18 +117,3 @@ function thirst(response){
   var avgTags = hashtags/response.data.length;
   $(".visibility").append(avgTags);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
